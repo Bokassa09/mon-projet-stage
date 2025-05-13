@@ -8,7 +8,7 @@ Mode Forward (propagation directe) : calcule les dérivées en suivant les opér
 
 Mode Backward (propagation inverse) : construit un graphe computationnel pour calculer les dérivées en partant de la sortie.
 
-La différenciation automatique est une technique essentielle en optimisation et apprentissage automatique, offrant des dérivées exactes avec un coût calculatoire maîtrisé.
+La différenciation automatique est une technique essentielle en optimisation et apprentissage automatique, offrant des dérivées exactes avec un coût calculatoire maîtrisé. Ce module constitue une base solide pour comprendre les concepts fondamentaux des réseaux de neurones et du deep learning.
 
 ## Objectifs
 
@@ -22,7 +22,13 @@ Implémenter le mode Backward (propagation inverse avec graphe computationnel).
 
 Tester sur des fonctions mathématiques et des modèles d'apprentissage.
 
+Explorer l'utilisation de la différenciation automatique dans les réseaux de neurones.
+
 Comparer les performances avec des bibliothèques comme JAX, TensorFlow et PyTorch.
+
+## Applications en Deep Learning
+
+Ce module peut être utilisé comme base pour comprendre et expérimenter avec les réseaux de neurones, notamment dans la mise en œuvre de la rétropropagation (backpropagation) utilisée dans l'apprentissage des modèles de deep learning.
 
 ## Prérequis
 
