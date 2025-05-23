@@ -12,7 +12,7 @@ class AutoDiff:
 
     def __add__(self, other):
         if not isinstance(other, AutoDiff):
-            other=AutoDiff(other)
+            other=AutoDiff(other,0.0)
         
         res=AutoDiff(
             valeur=self.valeur + other.valeur,
@@ -24,7 +24,7 @@ class AutoDiff:
     
     def __sub__(self, other):
         if not isinstance(other, AutoDiff):
-            other=AutoDiff(other)
+            other=AutoDiff(other,0.0)
         
         res=AutoDiff(
             valeur=self.valeur - other.valeur,
@@ -41,7 +41,7 @@ class AutoDiff:
 
     def __mul__(self, other):
         if not isinstance(other, AutoDiff):
-            other=AutoDiff(other)
+            other=AutoDiff(other,0.0)
         
         res=AutoDiff(
             valeur=self.valeur*other.valeur,
@@ -55,7 +55,7 @@ class AutoDiff:
     
     def __truediv__(self, other):
         if not isinstance(other, AutoDiff):
-            other=AutoDiff(other)
+            other=AutoDiff(other,0.0)
         
         res=AutoDiff(
             valeur=self.valeur/other.valeur,
