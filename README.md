@@ -30,13 +30,19 @@ Comparer les performances avec des bibliothèques comme JAX, TensorFlow et PyTor
 
 Ce module peut être utilisé comme base pour comprendre et expérimenter avec les réseaux de neurones, notamment dans la mise en œuvre de la rétropropagation (backpropagation) utilisée dans l'apprentissage des modèles de deep learning.
 
+## Génération automatique de docstrings
+
+Ce projet utilise l'extension Python Docstring Generator pour **VS Code**, permettant de générer automatiquement des docstrings conformes aux standards (Google, NumPy, etc.).
+
+Cela facilite la documentation des fonctions et classes, et garantit une meilleure lisibilité et maintenabilité du code.
+
 ## Prérequis
 
 Python 3.8+
 
 ## Auteur
 
-BOUEKE Omer Bokassa - Projet réalisé dans le cadre d'un stage supervisé par M. David DEFOUR.
+**BOUEKE Omer Bokassa** - Projet réalisé dans le cadre d'un stage supervisé par M. David DEFOUR.
 
-M. David DEFOUR
+**M. David DEFOUR**
 Professeur d'informatique à l'Université de Perpignan et Vice-président chargé de la stratégie numérique et de l'intelligence artificielle.
