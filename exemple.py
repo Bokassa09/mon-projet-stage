@@ -5,7 +5,7 @@ import numpy as np
 def main():
     x=variable(2)
     # Exemple 1: f(x) = x^2
-    f1 = x * x  # ou x**2
+    f1 = x * x  
 
     assert np.isclose(f1.valeur,4)
     assert np.isclose(f1.derive,4)

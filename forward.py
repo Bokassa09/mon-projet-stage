@@ -1,8 +1,18 @@
 import numpy as np
 
 class AutoDiff:
+    """
+    Definition de la classe Au
 
+    """
     def __init__(self, valeur, derive=1.0):
+        """
+        Crée un nombre avec sa valeur et sa dérivée.
+
+        Args:
+            valeur (float): Valeur de la fonction au point x (i.e. f(x)).
+            derive (float, optional): Valeur de la dérivée au point x (i.e. f'(x)). Défaut à 1.0.
+        """
         self.valeur=float(valeur)
         self.derive=float(derive)
     def __repr__(self):
@@ -11,17 +21,37 @@ class AutoDiff:
     # Definition des operateurs de base en mathemtique
 
     def __add__(self, other):
+
+        """
+        Surcharge de l'opérateur + pour l'addition d'objets AutoDiff.
+
+        L'addition est définie selon :
+            f(x) + g(x) => valeur = f.valeur + g.valeur
+            (f + g)'(x) => derive = f.derive + g.derive
+
+        Args:
+            other (AutoDiff): L'autre objet AutoDiff à additionner.
+
+        Returns:
+            AutoDiff: Un nouvel objet AutoDiff représentant la somme.
+        """
+
+        # Convertir other en AutoDiff s'il ne l'est pas déjà
         if not isinstance(other, AutoDiff):
-            other=AutoDiff(other,0.0)
+            other=AutoDiff(other,0.0) # Constante -> dérivée = 0
         
+        # Règle pour l'addition: (f + g)' = f' + g'
         res=AutoDiff(
             valeur=self.valeur + other.valeur,
             derive=self.derive + other.derive)
         return res
 
+    # Pour permettre other + self
     def __radd__(self, other):
         return self.__add__(other)
     
+
+    # Même principe que __add__
     def __sub__(self, other):
         if not isinstance(other, AutoDiff):
             other=AutoDiff(other,0.0)
@@ -39,6 +69,7 @@ class AutoDiff:
         
         return other.__sub__(self)
 
+    # Même principe que __add__
     def __mul__(self, other):
         if not isinstance(other, AutoDiff):
             other=AutoDiff(other,0.0)
@@ -53,6 +84,7 @@ class AutoDiff:
         return self.__mul__(other)
     
     
+    # Même principe que __add__
     def __truediv__(self, other):
         if not isinstance(other, AutoDiff):
             other=AutoDiff(other,0.0)
@@ -70,6 +102,8 @@ class AutoDiff:
         
         return other.__truediv__(self)
     
+
+    # Même principe que __add__
     def __pow__(self, power):
         if isinstance(power, AutoDiff):
             res=AutoDiff(
@@ -86,8 +120,13 @@ class AutoDiff:
             )
         
         return res 
+    
+
     # Defintion des fonction mathématiques courantes
 
+    # Dans cette implémentation, les fonctions mathématiques courantes ont été définies comme
+    #  des méthodes de la classe. Par conséquent, elles s’utilisent avec la notation objet, c’est-à-dire x.sin(),
+    #  et non avec la syntaxe habituelle sin(x) des fonctions standards en Python.
     def exp(self):
         valeur_exp=np.exp(self.valeur)
 
