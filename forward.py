@@ -19,7 +19,9 @@ class AutoDiff:
         return f"AutoDiff : valeur={self.valeur}, deriveé={self.derive}"
     
     # Definition des operateurs de base en mathemtique
-
+    def __neg__(self):
+        return AutoDiff(-self.valeur, -self.derive)
+    
     def __add__(self, other):
 
         """
@@ -49,6 +51,7 @@ class AutoDiff:
     # Pour permettre other + self
     def __radd__(self, other):
         return self.__add__(other)
+    
     
 
     # Même principe que __add__
@@ -119,7 +122,9 @@ class AutoDiff:
             derive=power*self.valeur**(power-1)*self.derive
             )
         
-        return res 
+        return res
+    
+
     
 
     # Defintion des fonction mathématiques courantes
@@ -156,4 +161,11 @@ class AutoDiff:
             valeur=np.log(self.valeur),
             derive=self.derive/self.valeur
         )
+    def sqrt(self):
+        val = np.sqrt(self.valeur)
+        return AutoDiff(
+        valeur=val,
+        derive=(0.5 / val) * self.derive
+    )
+
     
