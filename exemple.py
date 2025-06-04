@@ -3,7 +3,7 @@ from utile import variable, constante
 import numpy as np
 
 def main():
-    print(" Exemple 1")
+    print("Exemple 1")
     x=variable(2)
     # Exemple 1: f(x) = x^2
     f1 = x * x  
@@ -19,20 +19,20 @@ def main():
     # teste sur la fonction definie dans le rapport f(x1,x2)=x1^2*x2+cos(x2)
     x1 = variable(1)  
     x2 = constante(2)  
-    f = (x1*x1)*x2 + x2.cos()
+    f2= (x1*x1)*x2 + x2.cos()
 
     valeur_theorique = 1*1*2 + np.cos(2)
     derivee_theorique = 2*1*2 
-    assert np.isclose(f.valeur, valeur_theorique )
-    assert np.isclose(f.derive, derivee_theorique )
-    print("Le test pour la fonction du rapport a reussi 'x1' ")
+    assert np.isclose(f2.valeur, valeur_theorique )
+    assert np.isclose(f2.derive, derivee_theorique )
+    print("Le test pour la fonction du rapport a reussi par rapport à la variable 'x1' ")
 
 
     print("Valeur théorique:", valeur_theorique)
     print("Dérivée théorique :", derivee_theorique)
     print("\n")
-    print("Résultat AutoDiff pour valeur:", f.valeur)
-    print("Résultat AutoDiff pour derive",  f.derive)
+    print("Résultat AutoDiff pour valeur:", f2.valeur)
+    print("Résultat AutoDiff pour derive",  f2.derive)
 
     x1 = constante(1)  
     x2 = variable(2)  
@@ -41,7 +41,7 @@ def main():
     
     derive_theorique = 1 - np.sin(2)
     assert np.isclose(f.derive, derive_theorique )
-    print("Le test pour la fonction du rapport a reussi 'x2' ")
+    print("Le test pour la fonction du rapport a reussi 'par rapport à la variable x2' ")
     print("\n")
     
     print(f"Résultat AutoDiff pour derive= {f.derive}")
@@ -69,6 +69,19 @@ def main():
 
     deriv_man=(1/45)*(-np.exp(0)) + 0*np.exp(-1)*(1-1)
     print(f"La valeure manuelle de la derivée est: {deriv_man}")
+
+    print("-----------------------------------------")
+    print("Exemple 4")
+
+    # f=exp(sin(x)) + y
+
+    x=variable(1.0)
+    y=constante(1.0)
+    f4=(x.sin()).exp() + y
+    print(f"f4={f4}")
+    # verification
+    res=np.cos(1.0)*np.exp(np.sin(1.0))
+    print(f"la valeure manuelle de la derivée est: {res}")
 
     
 main()
