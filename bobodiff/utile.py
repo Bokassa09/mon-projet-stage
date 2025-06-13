@@ -1,4 +1,4 @@
-from forward import AutoDiff
+from .forward import AutoDiff
 
 def constante(valeur):
     """

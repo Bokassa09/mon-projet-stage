@@ -50,10 +50,10 @@ class Tensor:
             # a^b
             a,b=self.fils
             # derive par rapport a (b*a'*a^b-1)
-            if len(self.children) > 1:
+            if len(self.fils) > 1:
                 a.backward(gradient*b.valeur*(a.valeur**(b.valeur-1)))
             # derive par rapport b (a^b*ln(a))
-                b.backward(gradient*(a.valeur**b.valeur)*np.ln(a.valeur))
+                b.backward(gradient*(a.valeur**b.valeur)*np.log(a.valeur))
             
             else:
                 # Si b est une constante
@@ -61,7 +61,7 @@ class Tensor:
 
         elif self.op == 'exp':
             
-            self.fils[0].backward(gradient * self.self)
+            self.fils[0].backward(gradient * self.valeur)
         
         elif self.op == 'log':
             
