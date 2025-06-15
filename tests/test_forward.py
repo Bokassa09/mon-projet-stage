@@ -104,14 +104,13 @@ def test_exp2():
     x = AutoDiff(0.0, 1.0)
     z = x.exp()
     assert np.allclose(z.valeur, 1.0)
-    assert np.allclose(z.derive, 1.0)  # exp(0) = 1
-
+    assert np.allclose(z.derive, 1.0)  
 def test_sqrt():
     """Test de la racine carrée en mode forward"""
     x = AutoDiff(4.0, 1.0)
     z = x.sqrt()
     assert np.allclose(z.valeur, 2.0)
-    assert np.allclose(z.derive, 0.25)  # 1/(2*sqrt(4)) = 1/4 = 0.25
+    assert np.allclose(z.derive, 0.25) 
 
 def test_sqrt2():
     """Test de la racine carrée avec une autre valeur"""
