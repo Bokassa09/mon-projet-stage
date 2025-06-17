@@ -15,13 +15,13 @@ Ce dossier contient les scripts et outils de benchmark permettant d’évaluer l
 
 ## Exécution du profilage
 
-### Avec `cProfile`
+Avec `cProfile`
 
 ```bash
 python profile_forward.py
 python profile_backward.py
 
-### Avec `Snakeviz`
+Avec `Snakeviz`
 
 Visualisation avec snakeviz 
 
@@ -29,7 +29,7 @@ Visualisation avec snakeviz
 snakeviz forward.prof
 snakeviz backward.prof
 
-### Avec `Scalene`
+Avec `Scalene`
 
 Visualisation de scalene
 
@@ -37,6 +37,7 @@ Visualisation de scalene
 scalene profile_backward.py 'suivi de pour interface graphique' python3 -m http.server 8000
 scalene profile_forward.py 'suivi de pour interface graphique' python3 -m http.server 8000
 
-### Avec `memory_profiler`
+Avec `memory_profiler`
+
 ```bash
 python3 -m memory_profiler profile_backward.py
