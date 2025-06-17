@@ -1,10 +1,12 @@
-import numpy as np
+import math
 
 class AutoDiff:
     """
-    Definition de la classe Au
+    Definition de la classe AutoDiff
 
     """
+    # __slots__ = ('valeur', 'derive')
+
     def __init__(self, valeur, derive=1.0):
         """
         Crée un nombre avec sa valeur et sa dérivée.
@@ -87,14 +89,15 @@ class AutoDiff:
         return self.__mul__(other)
     
     
-    # Même principe que __add__
     def __truediv__(self, other):
         if not isinstance(other, AutoDiff):
             other=AutoDiff(other,0.0)
         
+        other_val= other.valeur * other.valeur
+        
         res=AutoDiff(
             valeur=self.valeur/other.valeur,
-            derive=(self.derive*other.valeur - self.valeur*other.derive)/(other.valeur**2)
+            derive=(self.derive*other.valeur - self.valeur*other.derive)/other_val
         )
         return res
     
@@ -106,66 +109,85 @@ class AutoDiff:
         return other.__truediv__(self)
     
 
-    # Même principe que __add__
     def __pow__(self, power):
         if isinstance(power, AutoDiff):
-            res=AutoDiff(
-                valeur=self.valeur**power.valeur,
-                derive=self.valeur**power.valeur*(
-                power.derive*np.log(self.valeur)+
-                power.valeur*self.derive/self.valeur
+
+            base_val = self.valeur
+            power_val = power.valeur
+            
+            result_val = base_val ** power_val
+            
+            
+            if base_val > 0:  
+                log_base = math.log(base_val)
+                derive_val = result_val * (
+                    power.derive * log_base + 
+                    power_val * self.derive / base_val
                 )
-            )
+            else:
+                
+                derive_val = 0.0
+            
+            res = AutoDiff(valeur=result_val, derive=derive_val)
         else:
-            res=AutoDiff(
-            valeur=self.valeur**power,
-            derive=power*self.valeur**(power-1)*self.derive
-            )
+            # Cas f(x)^c où c est une constante
+            if power == 0:
+                # Optimisation: x^0 = 1, dérivée = 0
+                return AutoDiff(1.0, 0.0)
+            elif power == 1:
+                # Optimisation: x^1 = x, retourner une copie
+                return AutoDiff(self.valeur, self.derive)
+            elif power == 2:
+                # Optimisation spéciale pour le carré 
+                return AutoDiff(
+                    valeur=self.valeur * self.valeur,
+                    derive=2 * self.valeur * self.derive
+                )
+            else:
+                # Cas général avec optimisation
+                base_power_minus_1 = self.valeur ** (power - 1)
+                res = AutoDiff(
+                    valeur=base_power_minus_1 * self.valeur,  # Évite un calcul de puissance
+                    derive=power * base_power_minus_1 * self.derive
+                )
         
         return res
     
 
-    
-
-    # Defintion des fonction mathématiques courantes
-
-    # Dans cette implémentation, les fonctions mathématiques courantes ont été définies comme
-    #  des méthodes de la classe. Par conséquent, elles s’utilisent avec la notation objet, c’est-à-dire x.sin(),
-    #  et non avec la syntaxe habituelle sin(x) des fonctions standards en Python.
     def exp(self):
-        valeur_exp=np.exp(self.valeur)
-
+        valeur_exp = math.exp(self.valeur)
         return AutoDiff(
             valeur=valeur_exp,
-            derive=valeur_exp*self.derive
+            derive=valeur_exp * self.derive
         )
     
     def sin(self):
-
+        sin_val = math.sin(self.valeur)
+        cos_val = math.cos(self.valeur)
         return AutoDiff(
-            valeur=np.sin(self.valeur),
-            derive=np.cos(self.valeur)*self.derive
+            valeur=sin_val,
+            derive=cos_val * self.derive
         )
     
     def cos(self):
-
+        cos_val = math.cos(self.valeur)
+        sin_val = math.sin(self.valeur)
         return AutoDiff(
-            valeur=np.cos(self.valeur),
-            derive=-np.sin(self.valeur)*self.derive
+            valeur=cos_val,
+            derive=-sin_val * self.derive
         )
     
-
     def log(self):
-
         return AutoDiff(
-            valeur=np.log(self.valeur),
-            derive=self.derive/self.valeur
+            valeur=math.log(self.valeur),
+            derive=self.derive / self.valeur
         )
-    def sqrt(self):
-        val = np.sqrt(self.valeur)
-        return AutoDiff(
-        valeur=val,
-        derive=(0.5 / val) * self.derive
-    )
-
     
+    def sqrt(self):
+        sqrt_val = math.sqrt(self.valeur)
+        return AutoDiff(
+            valeur=sqrt_val,
+            derive=self.derive / (2 * sqrt_val)
+        )
+    
+   
