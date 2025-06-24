@@ -1,9 +1,3 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from bobodiff.forward import AutoDiff
-
 import pytest
 from bobodiff.forward import AutoDiff
 from bobodiff.utile import variable, constante

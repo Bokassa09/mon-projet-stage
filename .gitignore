@@ -1,4 +1,31 @@
-venv/
+# Fichiers et dossiers générés automatiquement
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+*.log
+*.prof
+*.html
+
+# Cache de test
+.pytest_cache/
+
+# Environnement virtuel
+venv/
+
+# Fichiers temporaires de l’OS / éditeur
 .DS_Store
+*.swp
+*.swo
+
+# Fichiers de profilage et rapports interactifs
+benchmark/*.prof
+benchmark/*.html
+benchmark/*.dat
+benchmark/*.mprof
+
+# Fichiers Word, PDF ou LaTeX générés
+*.docx
+*.aux
+*.log
+*.out
+*.toc

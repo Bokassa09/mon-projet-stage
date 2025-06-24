@@ -1,9 +1,3 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from bobodiff.backward import Tensor
-
 import pytest
 from bobodiff.backward import Tensor
 import numpy as np
@@ -110,10 +104,8 @@ def test_complete_backward():
     z = (x**2).sin() + y.cos() * x.exp()
     z.backward()
     
-    # Calcul manuel des gradients attendus
-    # dz/dx = 2x*cos(x^2) + cos(y)*exp(x)
     grad_x = 2.0 * 2.0 * np.cos(4.0) + np.cos(3.0) * np.exp(2.0)
-    # dz/dy = -sin(y)*exp(x)
+    
     grad_y = -np.sin(3.0) * np.exp(2.0)
     
     assert np.allclose(x.grad, grad_x, rtol=1e-10)
@@ -122,21 +114,21 @@ def test_complete_backward():
 def test_chaine_backward():
     """Test de la règle de la chaîne"""
     x = Tensor(1.0)
-    # z = exp(sin(x^2))
+    
     z = (x**2).sin().exp()
     z.backward()
     
-    # dz/dx = exp(sin(x^2)) * cos(x^2) * 2x
+    
     grad = np.exp(np.sin(1.0)) * np.cos(1.0) * 2.0
     assert np.allclose(x.grad, grad, rtol=1e-10)
 
 def test_multiple_backward():
     """Test quand une variable est utilisée plusieurs fois"""
     x = Tensor(2.0)
-    # z = x^2 + x^3
+    
     z = x**2 + x**3
     z.backward()
     
-    # dz/dx = 2x + 3x^2
+    
     grad = 2.0 * 2.0 + 3.0 * 4.0 
     assert np.allclose(x.grad, grad)

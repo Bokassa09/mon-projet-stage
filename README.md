@@ -10,6 +10,53 @@ Mode Backward (propagation inverse) : construit un graphe computationnel pour ca
 
 La différenciation automatique est une technique essentielle en optimisation et apprentissage automatique, offrant des dérivées exactes avec un coût calculatoire maîtrisé. Ce module constitue une base solide pour comprendre les concepts fondamentaux des réseaux de neurones et du deep learning.
 
+## Structure du Projet
+
+```
+stage/
+├── bobodiff/                    # 📚 Module principal de différenciation automatique
+│   ├── backward/               # Implémentation du mode backward (propagation inverse)
+│   ├── forward/                # Implémentation du mode forward (propagation directe)
+│   └── utile.py               # Fonctions utilitaires communes
+├── benchmark/                  # 📊 Évaluation et comparaison des performances
+│   ├── profile_backward.py     # Profiling du mode backward
+│   ├── profile_forward.py      # Profiling du mode forward
+│   └── pytorch.py             # Comparaisons avec PyTorch
+├── exemple/                    # 🧪 Exemples d'application pratique
+│   ├── exemple_backward.py     # Tests des fonctions du rapport (mode backward)
+│   └── exemple_forward.py      # Tests des fonctions du rapport (mode forward)
+├── Modele/                     # 🧠 Applications sur réseaux de neurones
+│   ├── predire_note.py         # Modèle de prédiction de notes
+│   ├── mlp_book.py            # Perceptron multicouche (théorie)
+│   └── mlp_classe.py          # MLP de classification binaire
+├── Rapport_de_stage/           # 📄 Documentation et rapport
+│   ├── [Fichiers PDF]         # Fondements théoriques et mathématiques
+│   └── soutenance.pptx        # Présentation de soutenance
+└── test/                       # ✅ Suite de tests de validation
+|    ├── test_backward.py        # Tests complets du mode backward
+|    └── test_forward.py 
+|   # Tests complets du mode forward
+|
+└── Docs/                      # 🐍 Guide d'utilisation
+    ├── usage.txt               # Guide pour les deux modes 
+```
+
+### 📖 Guide de navigation
+
+**⚠️ Important :** Chaque répertoire contient son propre README avec des instructions détaillées. Il est **fortement recommandé** de consulter le README spécifique de chaque dossier avant d'utiliser les fichiers qu'il contient.
+
+### Répertoires principaux
+
+- **`bobodiff/`** : Cœur du module avec les implémentations des modes forward et backward
+- **`benchmark/`** : Scripts de mesure de performance et comparaisons avec des bibliothèques établies
+- **`exemple/`** : Démonstrations pratiques des fonctionnalités sur les cas d'étude du rapport
+- **`Modele/`** : Applications du module sur des architectures de réseaux de neurones
+- **`test/`** : Tests exhaustifs validant toutes les opérations mathématiques implémentées
+- **`Rapport_de_stage/`** : Documentation théorique complète et présentation finale
+- **`Docs/`** : Documentation claire d’utilisation de la bibliothèque bobodiff
+
+
+
 ## Objectifs
 
 Étudier les principes de la différenciation automatique (DA).
@@ -46,3 +93,4 @@ Python 3.8+
 
 **M. David DEFOUR**
 Professeur d'informatique à l'Université de Perpignan et Vice-président chargé de la stratégie numérique et de l'intelligence artificielle.
+

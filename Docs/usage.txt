@@ -1,0 +1,73 @@
+FICHIER : backward.py
+
+Ce fichier contient l'implémentation principale de la propagation arrière (backward) pour la bibliothèque bobodiff.
+
+Il repose sur une classe centrale : Tensor.
+
+---
+
+FONCTIONNALITÉS CLÉS
+
+- Chaque Tensor peut contenir une valeur, un gradient, une opération, et ses "fils" (autres Tensors utilisés pour le calcul).
+- La méthode backward permet de calculer le gradient d’un résultat par rapport aux entrées.
+- bobodiff prend en charge de nombreuses opérations :
+    - Arithmétiques : addition, soustraction, multiplication, division, puissance
+    - Fonctions mathématiques : log, exp, sin, cos, sqrt, etc.
+    - Fonctions d’activation : relu, tanh, sigmoid
+    - Statistiques : mean, sum
+    - Produits matriciels : @
+
+---
+
+EXEMPLE D’UTILISATION
+
+```python
+from bobodiff.backward import Tensor
+
+x = Tensor(2.0)
+y = Tensor(3.0)
+z = x * y + x
+
+z.backward()
+
+print(x.grad)  # Résultat : 4.0
+print(y.grad)  # Résultat : 2.0
+
+
+----------------------------------------------------
+
+
+FICHIER : forward.py + utile.py
+
+Ce module contient une implémentation simple de la différentiation automatique en mode forward à l’aide de la classe AutoDiff.
+
+OBJECTIF
+
+Le mode forward permet de calculer en même temps :
+- la valeur d’une fonction f(x)
+- sa dérivée f'(x), automatiquement
+
+COMPOSANTS PRINCIPAUX
+
+1. AutoDiff (dans forward.py) :
+   - Représente un nombre avec sa valeur et sa dérivée
+   - Surcharge les opérations mathématiques : +, -, *, /, **, exp, log, sin, cos, tanh, sqrt
+   - Chaque opération applique automatiquement la règle de dérivation
+
+2. utile.py :
+   - constante(valeur) : crée un AutoDiff avec dérivée = 0
+   - variable(valeur) : crée un AutoDiff avec dérivée = 1 (cas typique de x)
+
+EXEMPLE D’UTILISATION
+
+from bobodiff.forward import AutoDiff
+from bobodiff.utile import variable, constante
+
+x = variable(2.0)         # x = 2, dérivée = 1
+y = constante(3.0)        # y = 3, dérivée = 0
+
+f = x * y + x ** 2
+
+print("Valeur de f(x):", f.valeur)   # 2*3 + 4 = 10
+print("Dérivée de f(x):", f.derive)  # 3 + 2*2 = 7
+

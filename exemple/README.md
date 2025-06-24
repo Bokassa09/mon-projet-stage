@@ -25,5 +25,5 @@ Elle permet de vérifier les calculs de dérivées et gradients manuellement.
 ## Lancer un exemple
 
 ```bash
-python exemple/example_forward.py
-python exemple/example_backward.py
+python3 exemple_forward.py
+python3 exemple_backward.py

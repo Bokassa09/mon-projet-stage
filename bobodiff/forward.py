@@ -1,4 +1,4 @@
-import math
+import numpy as np 
 
 class AutoDiff:
     """
@@ -119,7 +119,7 @@ class AutoDiff:
             
             
             if base_val > 0:  
-                log_base = math.log(base_val)
+                log_base = np.log(base_val)
                 derive_val = result_val * (
                     power.derive * log_base + 
                     power_val * self.derive / base_val
@@ -155,23 +155,23 @@ class AutoDiff:
     
 
     def exp(self):
-        valeur_exp = math.exp(self.valeur)
+        valeur_exp = np.exp(self.valeur)
         return AutoDiff(
             valeur=valeur_exp,
             derive=valeur_exp * self.derive
         )
     
     def sin(self):
-        sin_val = math.sin(self.valeur)
-        cos_val = math.cos(self.valeur)
+        sin_val = np.sin(self.valeur)
+        cos_val = np.cos(self.valeur)
         return AutoDiff(
             valeur=sin_val,
             derive=cos_val * self.derive
         )
     
     def cos(self):
-        cos_val = math.cos(self.valeur)
-        sin_val = math.sin(self.valeur)
+        cos_val = np.cos(self.valeur)
+        sin_val = np.sin(self.valeur)
         return AutoDiff(
             valeur=cos_val,
             derive=-sin_val * self.derive
@@ -179,15 +179,21 @@ class AutoDiff:
     
     def log(self):
         return AutoDiff(
-            valeur=math.log(self.valeur),
+            valeur=np.log(self.valeur),
             derive=self.derive / self.valeur
         )
     
     def sqrt(self):
-        sqrt_val = math.sqrt(self.valeur)
+        sqrt_val = np.sqrt(self.valeur)
         return AutoDiff(
             valeur=sqrt_val,
             derive=self.derive / (2 * sqrt_val)
         )
     
+    def tanh(self):
+        tanh_val = np.tanh(self.valeur)
+        return AutoDiff(
+        valeur=tanh_val,
+        derive=(1 - tanh_val * tanh_val) * self.derive
+        )
    

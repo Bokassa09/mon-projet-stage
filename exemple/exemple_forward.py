@@ -1,10 +1,5 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from bobodiff.forward import AutoDiff
 from bobodiff.utile import constante, variable
-import numpy as np
 
 # Variable : x1, Constante : x2
 x1 = variable(1.0)

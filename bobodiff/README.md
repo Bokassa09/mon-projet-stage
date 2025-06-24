@@ -12,7 +12,9 @@ Ce dossier contient l’implémentation principale du module de différentiation
 ## Exemple d'import
 
 ```python
-from bobodiff.forward import AutoDiff
+# Mode forward
+from bobodiff.forward import AutoDiff 
 from bobodiff.utile import constante, variable
-****
+------------------------------------------
+# Mode backward
 from bobodiff.backward import Tensor

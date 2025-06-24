@@ -34,10 +34,22 @@ Avec `Scalene`
 Visualisation de scalene
 
 ```bash
-scalene profile_backward.py 'suivi de pour interface graphique' python3 -m http.server 8000
-scalene profile_forward.py 'suivi de pour interface graphique' python3 -m http.server 8000
+
+scalene profile_backward.py  # Génère un rapport HTML
+python3 -m http.server 8000  # Pour visualiser le rapport via un navigateur
+
+scalene profile_forward.py  # Génère un rapport HTML
+python3 -m http.server 8000 # Pour visualiser le rapport via un navigateur
 
 Avec `memory_profiler`
 
 ```bash
-python3 -m memory_profiler profile_backward.py
+python3 -m memory_profiler profile_backward.py # Pour le mode backward
+
+
+Pour avoir un graphe des resumes de memory_profiler
+```bash
+mprof run profile_backward.py # Pour le mode backward
+mprof plot
+
+Pareil pour le mode forward 
