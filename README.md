@@ -38,6 +38,19 @@ stage/
 |
 └── Docs/                             # 🐍 Guide d'utilisation
     ├── usage.txt                     # Guide pour les deux modes 
+
+
+NB : Pour visualiser les résultats obtenus lors des tests de bobodiff sur les trois modèles de réseaux de neurones, veuillez consulter le dossier Rapport_de_stage.
+Vous y trouverez un document PDF contenant :
+
+    la théorie mathématique,
+
+    l’implémentation,
+
+    ainsi que les résultats pour les trois modèles testés.
+
+Les sorties sont clairement expliquées, avec des illustrations bien choisies, légendées de manière précise pour faciliter la compréhension.
+
 ```
 
 ###  Guide de navigation
