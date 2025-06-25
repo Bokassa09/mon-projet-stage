@@ -13,7 +13,7 @@ df = pd.DataFrame(data)
 # Normalisation des données 
 def normaliser(valeurs):
     mean = sum(valeurs) / len(valeurs)
-    return [(v - mean) / 10 for v in valeurs]  # Division par 10 , centré et reduire les donne x-men(x)/ecart-type ici j'ai pris 
+    return [(v - mean) / 10 for v in valeurs]  # Division par 10 , centré et reduire les données :  x-men(x)/ecart-type ici j'ai pris 10 au lieu de prendre l'ecart type
 
 math_class_norm = normaliser(df["Math_Class"])
 fr_class_norm = normaliser(df["Fr_Class"])

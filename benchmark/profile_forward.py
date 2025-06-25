@@ -1,7 +1,7 @@
 from memory_profiler import profile
 import time
-#import cProfile
-#import pstats
+import cProfile
+import pstats
 from bobodiff.utile import variable, constante
 
 @profile
@@ -42,12 +42,12 @@ def test_forward():
     print(f"df/dx3 = {f3.derive:.6f}")
 
 if __name__ == "__main__":
-    """profiler = cProfile.Profile()
+    profiler = cProfile.Profile()
     profiler.enable()
     test_forward()
     profiler.disable()
 
     stats = pstats.Stats(profiler)
     stats.strip_dirs().sort_stats("cumtime").print_stats(20)
-    profiler.dump_stats("forward.prof")"""
+    profiler.dump_stats("forward.prof")
     test_forward()

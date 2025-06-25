@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, FancyBboxPatch
 import seaborn as sns
-from bobodiff.backward import Tensor  # Ta bibliothèque
+from bobodiff.backward import Tensor  # Ma bibliothèque
 
 # Style moderne pour les graphiques
 plt.style.use('seaborn-v0_8-darkgrid')

@@ -8,8 +8,8 @@ Ce dossier contient les scripts et outils de benchmark permettant d’évaluer l
 
 - `profile_forward.py` : Script de profilage pour le mode forward (`cProfile`).
 - `profile_backward.py` : Script de profilage pour le mode backward (`cProfile`).
-- `forward.prof`, `backward.prof` : Résultats du profilage à analyser avec `snakeviz` ou `pstats`.
-- `scalene_forward.html`, `scalene_backward.html` : Rapports interactifs générés avec **Scalene**.
+- `forward.prof`, `backward.prof` : Résultats du profilage à analyser avec `snakeviz` 
+- `profile.html`, `profile.html` : Rapports interactifs générés avec **Scalene**.
 
 ---
 
@@ -35,10 +35,10 @@ Visualisation de scalene
 
 ```bash
 
-scalene profile_backward.py  # Génère un rapport HTML
+scalene profile_backward.py  # Génère un rapport HTML // Mode backward
 python3 -m http.server 8000  # Pour visualiser le rapport via un navigateur
 
-scalene profile_forward.py  # Génère un rapport HTML
+scalene profile_forward.py  # Génère un rapport HTML  // Mode forward
 python3 -m http.server 8000 # Pour visualiser le rapport via un navigateur
 
 Avec `memory_profiler`

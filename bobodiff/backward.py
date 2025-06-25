@@ -38,7 +38,7 @@ class Tensor:
             
         if gradient is None:
             # Pour le nœud racine, gradient = 1
-            if self.valeur.ndim == 0:  # scalaire
+            if self.valeur.ndim == 0:  
                 gradient = np.ones_like(self.valeur)
             else:
                 gradient = np.ones_like(self.valeur)

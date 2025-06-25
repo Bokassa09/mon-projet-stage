@@ -14,34 +14,34 @@ La différenciation automatique est une technique essentielle en optimisation et
 
 ```
 stage/
-├── bobodiff/                    # 📚 Module principal de différenciation automatique
-│   ├── backward/               # Implémentation du mode backward (propagation inverse)
-│   ├── forward/                # Implémentation du mode forward (propagation directe)
-│   └── utile.py               # Fonctions utilitaires communes
-├── benchmark/                  # 📊 Évaluation et comparaison des performances
-│   ├── profile_backward.py     # Profiling du mode backward
-│   ├── profile_forward.py      # Profiling du mode forward
-│   └── pytorch.py             # Comparaisons avec PyTorch
-├── exemple/                    # 🧪 Exemples d'application pratique
-│   ├── exemple_backward.py     # Tests des fonctions du rapport (mode backward)
-│   └── exemple_forward.py      # Tests des fonctions du rapport (mode forward)
-├── Modele/                     # 🧠 Applications sur réseaux de neurones
-│   ├── predire_note.py         # Modèle de prédiction de notes
-│   ├── mlp_book.py            # Perceptron multicouche (théorie)
-│   └── mlp_classe.py          # MLP de classification binaire
-├── Rapport_de_stage/           # 📄 Documentation et rapport
-│   ├── [Fichiers PDF]         # Fondements théoriques et mathématiques
-│   └── soutenance.pptx        # Présentation de soutenance
-└── test/                       # ✅ Suite de tests de validation
-|    ├── test_backward.py        # Tests complets du mode backward
+├── bobodiff/                         # 📚 Module principal de différenciation automatique
+│   ├── backward/                     # Implémentation du mode backward (propagation inverse)
+│   ├── forward/                      # Implémentation du mode forward (propagation directe)
+│   └── utile.py                      # Fonctions utilitaires communes
+├── benchmark/                        # 📊 Évaluation et comparaison des performances
+│   ├── profile_backward.py           # Profiling du mode backward
+│   ├── profile_forward.py            # Profiling du mode forward
+│   └── pytorch.py                    # Comparaisons avec PyTorch
+├── exemple/                          # 🧪 Exemples d'application pratique
+│   ├── exemple_backward.py           # Tests des fonctions du rapport (mode backward)
+│   └── exemple_forward.py            # Tests des fonctions du rapport (mode forward)
+├── Modele/                           # 🧠 Applications sur réseaux de neurones
+│   ├── predire_note.py               # Modèle de prédiction de notes
+│   ├── mlp_book.py                   # Perceptron multicouche (théorie)
+│   └── mlp_classe.py                 # MLP de classification binaire
+├── Rapport_de_stage/                 # 📄 Documentation et rapport
+│   ├── [Fichiers PDF]                # Fondements théoriques et mathématiques
+│   └── soutenance.pptx               # Présentation de soutenance
+└── test/                             # ✅ Suite de tests de validation
+|    ├── test_backward.py             # Tests complets du mode backward
 |    └── test_forward.py 
 |   # Tests complets du mode forward
 |
-└── Docs/                      # 🐍 Guide d'utilisation
-    ├── usage.txt               # Guide pour les deux modes 
+└── Docs/                             # 🐍 Guide d'utilisation
+    ├── usage.txt                     # Guide pour les deux modes 
 ```
 
-### 📖 Guide de navigation
+###  Guide de navigation
 
 **⚠️ Important :** Chaque répertoire contient son propre README avec des instructions détaillées. Il est **fortement recommandé** de consulter le README spécifique de chaque dossier avant d'utiliser les fichiers qu'il contient.
 

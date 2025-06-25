@@ -98,7 +98,6 @@ def test_bobodiff():
     accuracies = []
     
     for epoch in range(100):
-        # Forward + backward
         total_loss, accuracy = compute_loss()
         
         # Zero gradients

@@ -25,7 +25,7 @@ Ce script implémente une **régression linéaire** avec calcul du gradient par 
 
 Un **perceptron multicouche** inspiré du travail d’Andrej Karpathy, utilisé pour tester `bobodiff` dans un contexte plus complexe que la régression linéaire.
 
-- Réseau dense avec fonction d’activation et rétropropagation manuelle.
+- Réseau dense avec fonction d’activation et rétropropagation .
 - Données jouets pour la classification.
 
 ---
