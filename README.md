@@ -17,7 +17,7 @@ stage/
 ├── bobodiff/                         # 📚 Module principal de différenciation automatique
 │   ├── backward/                     # Implémentation du mode backward (propagation inverse)
 │   ├── forward/                      # Implémentation du mode forward (propagation directe)
-│   └── utile.py                      # Fonctions utilitaires communes
+│   └── utile.py                      # Fonctions utilitaires uniquement pour le mode forward
 ├── benchmark/                        # 📊 Évaluation et comparaison des performances
 │   ├── profile_backward.py           # Profiling du mode backward
 │   ├── profile_forward.py            # Profiling du mode forward
@@ -34,8 +34,7 @@ stage/
 │   └── soutenance.pptx               # Présentation de soutenance
 └── test/                             # ✅ Suite de tests de validation
 |    ├── test_backward.py             # Tests complets du mode backward
-|    └── test_forward.py 
-|   # Tests complets du mode forward
+|    └── test_forward.py              # Tests complets du mode forward
 |
 └── Docs/                             # 🐍 Guide d'utilisation
     ├── usage.txt                     # Guide pour les deux modes 
